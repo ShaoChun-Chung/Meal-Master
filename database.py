@@ -1,4 +1,5 @@
 import mysql.connector
+CITY2ID = {'Milan': 348156, 'Rome': 461789, 'Paris': 415144}
 
 class ResDB:
     def __init__(self) -> None:
