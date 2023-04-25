@@ -1,0 +1,9 @@
+<h1> Eating yet? </h1>
+
+{% for user in data_user %}
+	<h3> Hello, {{ user.u_name }} </h3>
+{% endfor %}
+
+<a class="btn btn-primary" href="/recommend">
+	<button> Recommend me! </button>
+</a>
