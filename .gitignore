@@ -5,3 +5,6 @@ __pycache__/
 
 #data
 data/
+
+#credentials
+api_cred.json
