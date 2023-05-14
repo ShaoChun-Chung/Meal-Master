@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.dropbtn {
+  background-color: #708949;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #505b2e;}
+</style>
+</head>
+<body>
+
+<h1 style="text-align: center;"> Check these restaurants! </h1>
+
+<form name="form_for_filter" id="form_for_filter" action="/recommend">
+	Restaurant Type: <select name="type_" id="type_">
+		<option value=""> All </option>
+		<option value="Italian" {% if type_ == 'Italian' %} selected {% endif %}> Italian </option>
+		<option value="Mexican" {% if type_ == 'Mexican' %} selected {% endif %}> Mexican </option>
+		<option value="American" {% if type_ == 'American' %} selected {% endif %}> American </option>
+	  </select>
+	  <br><br>
+	Price range: <select name="price" id="price">
+		<option value=""> All </option>
+		<option value="0-25" {% if price == '0-25' %} selected {% endif %}> 0-25 </option>
+		<option value="26-50" {% if price == '26-50' %} selected {% endif %}> 26-50 </option>
+		<option value="51-100" {% if price == '51-100' %} selected {% endif %}> 51-100 </option>
+	  </select>
+	  <br><br>
+	Location: <select name="location" id="location">
+		<option value=""> All </option>
+		<option value="348156" {% if location == '348156' %} selected {% endif %}> Milan, Italy </option>
+		<option value="461789" {% if location == '461789' %} selected {% endif %}> Rome, Italy </option>
+		<option value="415144" {% if location == '415144' %} selected {% endif %}> Paris, France</option>
+	  </select>
+	  <br><br>
+	  <input type="submit" value="Submit">  
+	</form>
+<p></p>
+<table>
+    <tr style="background-color: blanchedalmond;">
+        <th> Restaurant </th>
+        <th> Type </th>
+        <th> Avg $ per person </th>
+	    <th> Address </th>
+    </tr>
+	{% for restaurant in data_restaurant %}
+	<tr>
+        <th> {{restaurant.r_name}}</th>
+        <th> {{restaurant.r_type}} </th>
+        <th> {{restaurant.r_price}} </th>
+	    <th> {{restaurant.r_address}} </th>
+    </tr>
+	{% endfor %}
+</table>
+<br><br>
+<a href="/home"> Back </a>
+<br>
+<a href="/logout"> Log out </a>
+
+</body>
+</html>
