@@ -8,6 +8,10 @@
 2. Follow the jupyter notebook in [extract](extract.ipynb) to extract restaurant data
 
 
+## Run Django
+
+Follow the readme.md here:  [Django](MM_Django/README.md)
+
 ## UI
 ### Login Page
 <img width="331" alt="image" src="https://github.com/ShaoChun-Chung/Meal-Master/assets/130029448/a414548e-4030-4238-a485-68c608f35476">
